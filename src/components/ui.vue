@@ -46,6 +46,7 @@ export default {
     easy: 7,
     medium: 5,
     hard: 3,
+    level: 'easy',
     currentLevel: '',
      input: '',
     message: '',
@@ -97,16 +98,7 @@ export default {
 
     };
     },
-    // watch:{
-    //     gameOver(){
-    //         if(this.countDown() === 1){
-    //             console.log('game over')
-
-    //     }
-    //     }
-      
-
-    // },
+   
 
     methods: {
         
@@ -115,6 +107,7 @@ export default {
         this.seconds = this.easy;
         this.displayTime();
         this.countDown();
+        this.level = 'easy'
         
 
 
@@ -123,12 +116,14 @@ export default {
         this.seconds  = this.medium;
         this.displayTime()
         this.countDown()
+        this.level = 'medium'
 
     },
         hardLevel() {
         this.seconds = this.hard;
         this.displayTime()
         this.countDown()
+        this.level = 'hard'
         
         
 
@@ -141,7 +136,7 @@ export default {
             this.currentWord = this.getRandomWord()
             this.input = '';
             this.score++
-            this.resetTimer()
+         this.resetTimer()
             
            
         }else{
@@ -172,7 +167,14 @@ export default {
     },
 
     resetTimer(){
-    clearInterval(this.countDown())
+        if(this.level === 'easy'){
+            this.time = this.easy
+        }else if(this.level === 'medium'){
+            this.time = this.medium
+        }else if(this.level === 'hard'){
+            this.time = this.hard
+        }
+    
     },
     addScore(){
         let inputValue = this.$refs.form.inputValue.value;
