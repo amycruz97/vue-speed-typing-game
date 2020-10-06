@@ -47,7 +47,6 @@ export default {
     medium: 5,
     hard: 3,
     level: 'easy',
-    currentLevel: '',
      input: '',
     message: '',
     isPlaying: true,
@@ -183,12 +182,6 @@ export default {
             
             
         }
-
-    // if (this.score === -1) {
-    //     this.score = 0;
-	// } else {
-	// this.score 
-	// }
 
     },
 
